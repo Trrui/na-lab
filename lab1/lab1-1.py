@@ -24,7 +24,7 @@ def main():
         x = 1
         approx_der = (f(x + step) - f(x)) / step
         real_der = f_der(x)
-        eps = np.abs(approx_der - real_der) / np.abs(real_der)
+        eps = np.abs(approx_der - real_der)
         eps_list.append(eps)
     ax.plot(step_list, eps_list, 'k-', label='real error')
 
