@@ -1,4 +1,4 @@
 .vscode/*
 *.png
 
-!lab1/*.png
+!lab*/*.png
