@@ -38,7 +38,7 @@ def newton_downhill(x0, f, f_der, ax, eps=1e-16, max_iter=100):
         i = 0
         while np.abs(f(new_x)) >= np.abs(f(x)):
             i += 1
-            new_x = x - s / np.power(4, i)
+            new_x = x - s * np.power(0.9, i)
         x = new_x
         step += 1
         print("[newton_downhill] step = {}, x = {}, lambda = {}".format(

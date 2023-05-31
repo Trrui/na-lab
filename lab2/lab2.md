@@ -4,7 +4,7 @@
 
 ### 解题思路
 
-+ 按照教材实现牛顿法和牛顿下山法，主要参数为函数、函数导数和初始值，最大迭代次数设置为 100 ，收敛判定条件设定为残差不超过阈值 1e-16 ，下山因子序列初值为 1 ，每次缩减为 1/4 
++ 按照教材实现牛顿法和牛顿下山法，主要参数为函数、函数导数和初始值，最大迭代次数设置为 100 ，收敛判定条件设定为残差不超过阈值 1e-16 ，下山因子序列初值为 1 ，每次缩减 10% 
 
 + 使用 `scipy.optimize.newton` 作为 baseline 
 
@@ -38,7 +38,7 @@
           break
       i = 1
       while np.abs(f(new_x)) >= np.abs(f(x)):
-          new_x = x - s / np.power(4, i)
+          new_x = x - s * np.power(0.9, i)
           i += 1
       x = new_x
   ```
@@ -54,7 +54,7 @@
   ```bash
   solve f(x) = 0, x0 = 0.0
   newton method: root = 0.0, steps = 100, converged = False
-  newton downhill method: root = -1.7692923542386314, steps = 22, converged = True
+  newton downhill method: root = -1.7692923542386314, steps = 14, converged = True
   scipy newton method: root = -1.7692923542385164, converged = True
   ----------------------------------------
   solve f(x) = 0, x0 = 1.35
